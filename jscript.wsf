@@ -1,0 +1,40 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+ <job>
+  <!-- <object id="winsock" progid="MSWinsock.Winsock" events="true" />ByVal bytesTotal -->
+  <reference object="MSWinsock.Winsock" />
+  <script language="VBScript">
+   <![CDATA[
+    
+    Function getSckData(winsockObj)
+        winsockObj.GetData data, 8
+        strsck = data
+        getSckData = strsck
+    End Function
+    
+    Function SETEACH(obj, callback)
+        For Each n In obj
+            callback(n)
+        Next
+    
+    End Function
+    
+    Function SETITEM(obj, index)
+        SETITEM = obj.Item(index)
+    End Function
+   ]]>
+  </script>
+  <script language="JScript">
+        function SETARRAY(setObj) {
+            var _arr = [];
+            SETEACH(setObj, function(n){
+                _arr.push(n);
+            });
+            return _arr;
+        }
+  </script>
+  <script language="JScript" src="jscript.js">
+  </script>
+  
+ </job>
+</package>
