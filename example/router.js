@@ -11,11 +11,12 @@ var mimeType = {
     "*" : "text/plain"
 };
 
+//获取文件扩展名
 function getFileType(filePath) {
     return filePath.split("/").pop().split(".").pop();
 }
 
-
+/** 路由类 */
 var Router = exports.Router = function(_pathRouter) {
     this.pathRouter = _pathRouter;
     Router.routerList.push(this);
